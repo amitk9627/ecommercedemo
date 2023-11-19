@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 import { FaBars, FaTimes, FaRegUser } from 'react-icons/fa'
 import { BsCart2, } from 'react-icons/bs'
 import { AiOutlineSearch, AiOutlineHeart } from 'react-icons/ai'
 const Navbar = () => {
     const [show, setShow] = useState(false)
+    const cartLength = useSelector(state => state.cartSystem.quantity);
+   
     return (
         <div className='w-full'>
             <header className='flex gap-10 justify-between items-center relative '>
@@ -30,7 +33,10 @@ const Navbar = () => {
                     <NavLink to='/user' className='symbol' ><FaRegUser /></NavLink>
                     <NavLink to='/' className='symbol'><AiOutlineHeart /></NavLink>
 
-                    <NavLink to='/addtocart' className='symbol'><BsCart2 /></NavLink>
+                    <NavLink to='/addtocart' className='symbol relative'>
+                       {cartLength>0 && <span className='absolute bg-red-400 -top-2 -right-2 rounded-full text-sm h-4 w-4 flex justify-center items-center'> {cartLength}</span>}
+                        <BsCart2 />
+                    </NavLink>
 
                 </div>
 

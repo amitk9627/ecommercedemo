@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 gap-10 max-lg:gap-5 p-2 wfull" >
+      <div className="grid grid-cols-5 max-lg:grid-cols-4 max-md:grid-cols-3 max-sm:grid-cols-2 gap-4 max-lg:gap-5 p-8 wfull" >
         {
           products.map((item)=>{
             return  <Card item={item} key={item.id}/>
